@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/my-website/static/css/main.5c082b60.css",
-    "main.js": "/my-website/static/js/main.8cdc17fc.js",
-    "index.html": "/my-website/index.html",
-    "main.5c082b60.css.map": "/my-website/static/css/main.5c082b60.css.map",
-    "main.8cdc17fc.js.map": "/my-website/static/js/main.8cdc17fc.js.map"
+    "main.css": "/two-squid-media/static/css/main.5c082b60.css",
+    "main.js": "/two-squid-media/static/js/main.8cdc17fc.js",
+    "index.html": "/two-squid-media/index.html",
+    "main.5c082b60.css.map": "/two-squid-media/static/css/main.5c082b60.css.map",
+    "main.8cdc17fc.js.map": "/two-squid-media/static/js/main.8cdc17fc.js.map"
   },
   "entrypoints": [
     "static/css/main.5c082b60.css",
