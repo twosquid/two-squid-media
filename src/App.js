@@ -402,17 +402,17 @@ const PortfolioPage = () => {
       category: 'Demonstration',
       title: 'Product Demo Video',
       // Instead of an image, we'll use an iframe for the YouTube video
-      videoUrl: 'https://youtube.com/embed/u7ELAooF74g?feature=share', // Replace with your YouTube video URL
+      videoUrl: 'https://www.youtube.com/embed/Y-FZfYO3dk4', // Replace with your YouTube video URL
       description: 'A product demo video showcasing the features and functionality of our service.'
     },
-    {
-      id: 7,
-      category: 'Demonstration',
-      title: 'Product Demo Video',
-      // Instead of an image, we'll use an iframe for the YouTube video
-      videoUrl: 'https://www.youtube.com/embed/f4NpQPONlUo?si=84fEWbwVxpjGkxlp', // Replace with your YouTube video URL
-      description: 'A product demo video showcasing the features and functionality of our service.'
-    },
+    // {
+    //   id: 7,
+    //   category: 'Demonstration',
+    //   title: 'Product Demo Video',
+    //   // Instead of an image, we'll use an iframe for the YouTube video
+    //   videoUrl: 'https://www.youtube.com/embed/f4NpQPONlUo?si=84fEWbwVxpjGkxlp', // Replace with your YouTube video URL
+    //   description: 'A product demo video showcasing the features and functionality of our service.'
+    // },
   ];
 
   return (
