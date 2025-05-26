@@ -365,43 +365,53 @@ const PortfolioPage = () => {
       id: 1,
       category: 'Video Editing',
       title: 'High-Energy Gym Promo Video',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Gym+Promo+Video',
+      videoUrl: 'https://youtube.com/embed/oJr9REsxATc?feature=share', // Replace with your YouTube video URL
       description: 'A dynamic promotional video for a new gym, showcasing facilities and workout energy to attract members.'
     },
     {
       id: 2,
       category: 'Graphic Design',
       title: 'Nutrition Plan Infographics',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Nutrition+Infographics',
+      videoUrl: 'https://youtube.com/embed/PQxnZSPg7QM?feature=share', // Replace with your YouTube video URL
       description: 'Visually engaging infographics and meal plans designed for a wellness coach, simplifying complex nutritional information.'
     },
     {
       id: 3,
       category: 'Web Development',
       title: 'Fitness Coaching Platform',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Fitness+Platform',
+      videoUrl: 'https://youtube.com/embed/O-0a7KF4wSw?feature=share', // Replace with your YouTube video URL
       description: 'Developed a custom web platform for a fitness coach, featuring workout tracking, client management, and subscription services.'
     },
     {
       id: 4,
       category: 'Videography',
       title: 'Health Supplement Product Shoot',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Supplement+Product+Video',
+      videoUrl: 'https://youtube.com/embed/7WiK_wnn28o?feature=share', // Replace with your YouTube video URL
       description: 'High-quality video and photography production for a new line of health supplements, emphasizing product benefits and lifestyle.'
     },
     {
       id: 5,
       category: 'Influencer Marketing',
       title: 'Wellness Brand Ambassador Campaign',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Wellness+Influencer',
+      image: '/wellness-influencer.jpg', // Replace with your image
+      videoUrl: 'https://youtube.com/embed/LoVK6NabC0k?feature=share', // Replace with your YouTube video URL
       description: 'Managed an influencer campaign for a wellness brand, partnering with fitness and nutrition experts to boost brand awareness and sales.'
     },
     {
       id: 6,
-      category: 'Social Media Handling',
-      title: 'Gym Social Media Content Strategy',
-      image: 'https://placehold.co/600x400/e50914/FFFFFF?text=Gym+Social+Media',
-      description: 'Developed and executed a comprehensive social media content strategy for a chain of gyms, increasing engagement and membership inquiries.'
+      category: 'Demonstration',
+      title: 'Product Demo Video',
+      // Instead of an image, we'll use an iframe for the YouTube video
+      videoUrl: 'https://youtube.com/embed/u7ELAooF74g?feature=share', // Replace with your YouTube video URL
+      description: 'A product demo video showcasing the features and functionality of our service.'
+    },
+    {
+      id: 7,
+      category: 'Demonstration',
+      title: 'Product Demo Video',
+      // Instead of an image, we'll use an iframe for the YouTube video
+      videoUrl: 'https://www.youtube.com/embed/f4NpQPONlUo?si=84fEWbwVxpjGkxlp', // Replace with your YouTube video URL
+      description: 'A product demo video showcasing the features and functionality of our service.'
     },
   ];
 
@@ -416,19 +426,32 @@ const PortfolioPage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {portfolioItems.map(item => (
             <div key={item.id} className="bg-black rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-white border-opacity-20">
-              <div className="relative overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e50914/FFFFFF?text=Placeholder'; }}
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="bg-[var(--color-red-primary)] text-white p-3 rounded-full hover:bg-[var(--color-red-dark)] transition-colors">
-                    <ChevronRight size={24} />
-                  </button>
+              {item.videoUrl ? ( // Render video if videoUrl exists
+                <div className="relative overflow-hidden">
+                  <iframe
+                    className="w-full h-60" // Adjust height as needed
+                    src={item.videoUrl}
+                    title={item.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
                 </div>
-              </div>
+              ) : ( // Otherwise, render image
+                <div className="relative overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e50914/FFFFFF?text=Placeholder'; }}
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <button className="bg-[var(--color-red-primary)] text-white p-3 rounded-full hover:bg-[var(--color-red-dark)] transition-colors">
+                      <ChevronRight size={24} />
+                    </button>
+                  </div>
+                </div>
+              )}
               <div className="p-6 text-left">
                 <p className="text-[var(--color-red-primary)] text-sm font-semibold uppercase mb-2">{item.category}</p>
                 <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
@@ -454,27 +477,27 @@ const TestimonialsPage = () => {
   const collaborations = [
     {
       id: 1,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=Gym+Insta+1',
+      image: '/testimonials/1.png',
     },
     {
       id: 2,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=NutriFlow+Insta',
+      image: '/testimonials/2.png',
     },
     {
       id: 3,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=Peak+Live+Insta',
+      image: '/testimonials/3.png',
     },
     {
       id: 4,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=Vitality+Insta',
+      image: '/testimonials/4.png',
     },
     {
       id: 5,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=UrbanCore+Insta',
+      image: '/testimonials/5.png',
     },
     {
       id: 6,
-      image: 'https://placehold.co/300x300/e50914/FFFFFF?text=HealthyBites+Insta',
+      image: '/testimonials/6.png',
     },
   ];
 
@@ -493,7 +516,7 @@ const TestimonialsPage = () => {
               <img
                 src={item.image}
                 alt={`Collaboration ${item.id}`} // Alt text for accessibility
-                className="w-40 h-40 rounded-xl object-cover mb-4 border-2 border-[var(--color-red-primary)]"
+                className="w-80 h-40 rounded-xl object-cover mb-4 border-2 border-[var(--color-red-primary)]"
                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/300x300/e50914/FFFFFF?text=Screenshot'; }}
               />
               {/* Removed title and description rendering */}
