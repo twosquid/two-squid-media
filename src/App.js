@@ -8,11 +8,10 @@ import {
 const BLACK = '#000000';
 const WHITE = '#FFFFFF';
 
-// A simple page routing component
-const PageContent = ({ currentPage }) => {
+const PageContent = ({ currentPage, handlePageChange }) => {
   return (
     <div key={currentPage} className="animate-fade-in">
-      {currentPage === 'home' && <HomePage />}
+      {currentPage === 'home' && <HomePage handlePageChange={handlePageChange} />}
       {currentPage === 'about' && <AboutPage />}
       {currentPage === 'services' && <ServicesPage />}
       {currentPage === 'portfolio' && <PortfolioPage />}
@@ -21,7 +20,6 @@ const PageContent = ({ currentPage }) => {
     </div>
   );
 };
-
 // Reusable Service Card Component
 const ServiceCard = ({ icon: Icon, title, description }) => {
   return (
@@ -38,11 +36,10 @@ const ServiceCard = ({ icon: Icon, title, description }) => {
   );
 };
 
-// Home Page Component
-const HomePage = () => {
+const HomePage = ({ handlePageChange }) => {
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Section - Changed to red and black gradient */}
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-black to-[var(--color-red-dark)] text-white py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: '/homepage/banner.png', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
@@ -55,10 +52,16 @@ const HomePage = () => {
               We are a dynamic digital marketing agency specializing in captivating video, stunning design, and strategic online presence to make your brand unforgettable.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
-              <button className="bg-[var(--color-red-primary)] hover:bg-[var(--color-red-dark)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button
+                onClick={() => handlePageChange('contact')}
+                className="bg-[var(--color-red-primary)] hover:bg-[var(--color-red-dark)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
                 Get a Free Consultation
               </button>
-              <button className="bg-transparent border-2 border-white hover:border-[var(--color-red-primary)] hover:bg-[var(--color-red-primary)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+              <button
+                onClick={() => handlePageChange('services')}
+                className="bg-transparent border-2 border-white hover:border-[var(--color-red-primary)] hover:bg-[var(--color-red-primary)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+              >
                 Our Services
               </button>
             </div>
@@ -135,7 +138,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Section - Changed to red and black gradient */}
+      {/* CTA Section */}
       <section className="bg-gradient-to-br from-black to-[var(--color-red-dark)] py-16 md:py-20 text-white text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Ready to Transform Your Digital Presence?</h2>
@@ -143,11 +146,17 @@ const HomePage = () => {
             Let's discuss how Two Squid Media can help you achieve your marketing goals. We're here to bring your vision to life.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <button className="bg-white text-[var(--color-red-primary)] font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button
+              onClick={() => handlePageChange('contact')}
+              className="bg-white text-[var(--color-red-primary)] font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
               Contact Us Today
             </button>
-            <button className="bg-transparent border-2 border-white hover:border-[var(--color-red-primary)] hover:bg-[var(--color-red-primary)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
-                Our Services
+            <button
+              onClick={() => handlePageChange('services')}
+              className="bg-transparent border-2 border-white hover:border-[var(--color-red-primary)] hover:bg-[var(--color-red-primary)] text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+            >
+              Our Services
             </button>
           </div>
         </div>
@@ -155,7 +164,6 @@ const HomePage = () => {
     </div>
   );
 };
-
 // About Us Page Component
 const AboutPage = () => {
   return (
@@ -372,7 +380,7 @@ const PortfolioPage = () => {
       id: 2,
       category: '',
       title: '',
-      videoUrl: 'https://www.youtube.com/shorts/2Z7K6cB08HU', // Replace with your YouTube video URL
+      videoUrl: 'https://www.youtube.com/embed/2Z7K6cB08HU', // Replace with your YouTube video URL
       description: ''
     },
     {
@@ -811,7 +819,7 @@ const App = () => {
 
       {/* Page Content */}
       <main>
-        <PageContent currentPage={currentPage} />
+        <PageContent currentPage={currentPage} handlePageChange={handlePageChange} />
       </main>
 
       {/* Footer */}
