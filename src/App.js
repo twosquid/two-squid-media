@@ -44,7 +44,7 @@ const HomePage = () => {
     <div className="min-h-screen bg-black">
       {/* Hero Section - Changed to red and black gradient */}
       <section className="relative bg-gradient-to-br from-black to-[var(--color-red-dark)] text-white py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: 'url(https://placehold.co/1920x1080/000000/FFFFFF?text=Creative+Background)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: '/homepage/banner.png', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <p className="text-[var(--color-red-light)] uppercase tracking-widest text-sm mb-4">Your Vision, Our Expertise</p>
@@ -65,10 +65,10 @@ const HomePage = () => {
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <img
-              src="https://placehold.co/600x400/e50914/FFFFFF?text=Digital+Marketing+Creative"
+              src="/homepage/banner.png"
               alt="Digital Marketing Illustration"
               className="rounded-xl shadow-2xl animate-fade-in-right"
-              onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e50914/FFFFFF?text=Placeholder+Image'; }}
+              onError={(e) => { e.target.onerror = null; e.target.src = '/homepage/banner.png'; }}
             />
           </div>
         </div>
@@ -166,10 +166,10 @@ const AboutPage = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-16">
           <div className="lg:w-1/2">
             <img
-              src="https://placehold.co/800x500/e50914/FFFFFF?text=Creative+Team+Collaboration"
+              src="/about-us/website-image-03.png"
               alt="Two Squid Media Team"
               className="rounded-xl shadow-xl w-full"
-              onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/800x500/e50914/FFFFFF?text=Placeholder+Image'; }}
+              onError={(e) => { e.target.onerror = null; e.target.src = '/about-us/website-image-03.png'; }}
             />
           </div>
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -363,47 +363,47 @@ const PortfolioPage = () => {
   const portfolioItems = [
     {
       id: 1,
-      category: 'Video Editing',
-      title: 'High-Energy Gym Promo Video',
-      videoUrl: 'https://youtube.com/embed/oJr9REsxATc?feature=share', // Replace with your YouTube video URL
-      description: 'A dynamic promotional video for a new gym, showcasing facilities and workout energy to attract members.'
+      category: '',
+      title: '',
+      videoUrl: 'https://www.youtube.com/embed/RSeS3rQXI9M', // Replace with your YouTube video URL
+      description: ''
     },
     {
       id: 2,
-      category: 'Graphic Design',
-      title: 'Nutrition Plan Infographics',
-      videoUrl: 'https://youtube.com/embed/PQxnZSPg7QM?feature=share', // Replace with your YouTube video URL
-      description: 'Visually engaging infographics and meal plans designed for a wellness coach, simplifying complex nutritional information.'
+      category: '',
+      title: '',
+      videoUrl: 'https://www.youtube.com/shorts/2Z7K6cB08HU', // Replace with your YouTube video URL
+      description: ''
     },
     {
       id: 3,
-      category: 'Web Development',
-      title: 'Fitness Coaching Platform',
+      category: '',
+      title: '',
       videoUrl: 'https://youtube.com/embed/O-0a7KF4wSw?feature=share', // Replace with your YouTube video URL
-      description: 'Developed a custom web platform for a fitness coach, featuring workout tracking, client management, and subscription services.'
+      description: ''
     },
     {
       id: 4,
-      category: 'Videography',
-      title: 'Health Supplement Product Shoot',
+      category: '',
+      title: '',
       videoUrl: 'https://youtube.com/embed/7WiK_wnn28o?feature=share', // Replace with your YouTube video URL
-      description: 'High-quality video and photography production for a new line of health supplements, emphasizing product benefits and lifestyle.'
+      description: ''
     },
     {
       id: 5,
-      category: 'Influencer Marketing',
-      title: 'Wellness Brand Ambassador Campaign',
+      category: '',
+      title: '',
       image: '/wellness-influencer.jpg', // Replace with your image
       videoUrl: 'https://youtube.com/embed/LoVK6NabC0k?feature=share', // Replace with your YouTube video URL
-      description: 'Managed an influencer campaign for a wellness brand, partnering with fitness and nutrition experts to boost brand awareness and sales.'
+      description: ''
     },
     {
       id: 6,
-      category: 'Demonstration',
-      title: 'Product Demo Video',
+      category: '',
+      title: '',
       // Instead of an image, we'll use an iframe for the YouTube video
       videoUrl: 'https://www.youtube.com/embed/Y-FZfYO3dk4', // Replace with your YouTube video URL
-      description: 'A product demo video showcasing the features and functionality of our service.'
+      description: ''
     },
     // {
     //   id: 7,
