@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-  Menu, X, ChevronRight, PlayCircle, Camera, Palette, ShoppingBag, Users, Code, Monitor, Youtube, Film, Mic, Mail, Phone, MapPin, Facebook, Instagram, MessageSquare, Briefcase, Star, Award, Lightbulb, TrendingUp
+  Menu, X, ChevronRight, PlayCircle, Camera, Linkedin, Palette, ShoppingBag, Users, Code, Monitor, Youtube, Film, Mic, Mail, Phone, MapPin, Facebook, Instagram, MessageSquare, Briefcase, Star, Award, Lightbulb, TrendingUp
 } from 'lucide-react';
+// import { ChevronRight, Lightbulb, TrendingUp,  } from 'lucide-react'; // Updated import to include Linkedin
+
 
 // Define the primary brand colors using CSS variables for precise control
 // These will be defined in the <style> tag below
@@ -166,6 +168,38 @@ const HomePage = ({ handlePageChange }) => {
 };
 // About Us Page Component
 const AboutPage = () => {
+  // Define team members with their designations and LinkedIn profiles
+  const teamMembers = [
+    {
+      name: "Saurabh Jha",
+      designation: "Founder & CEO",
+      image: "https://placehold.co/150x150/e50914/FFFFFF?text=Saurabh",
+      alt: "Saurabh Jha",
+      linkedin: "#", // Replace with actual LinkedIn URL
+    },
+    {
+      name: "Sujal Chauhan",
+      designation: "Co-Founder & Creative Director",
+      image: "https://placehold.co/150x150/e50914/FFFFFF?text=Sujal",
+      alt: "Sujal Chauhan",
+      linkedin: "#", // Replace with actual LinkedIn URL
+    },
+    {
+      name: "Kailash Rathod",
+      designation: "Co-Founder & CMO",
+      image: "https://placehold.co/150x150/e50914/FFFFFF?text=Kailash",
+      alt: "Kailash Rathod",
+      linkedin: "#", // Replace with actual LinkedIn URL
+    },
+    {
+      name: "Sonu Jha",
+      designation: "Co-Founder & CFO",
+      image: "https://placehold.co/150x150/e50914/FFFFFF?text=Sonu",
+      alt: "Sonu Jha",
+      linkedin: "https://www.linkedin.com/in/sonujha092/",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-black py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -230,62 +264,23 @@ const AboutPage = () => {
             Our diverse team of experts brings passion, creativity, and technical prowess to every project, ensuring your brand's success.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {/* Team Member 1 */}
-            <div className="bg-black p-6 rounded-xl shadow-md border border-white border-opacity-20 transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://placehold.co/150x150/e50914/FFFFFF?text=Saurabh"
-                alt="Saurabh Jha"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/e50914/FFFFFF?text=Placeholder'; }}
-              />
-              <h4 className="text-xl font-bold text-white">Saurabh Jha</h4>
-              {/* Removed designation */}
-              <div className="flex justify-center mt-3 space-x-2">
-                <a href="#" className="text-white opacity-70 hover:text-[var(--color-red-primary)] transition-colors"><Instagram size={20} /></a>
+            {teamMembers.map((member, index) => (
+              <div key={index} className="bg-black p-6 rounded-xl shadow-md border border-white border-opacity-20 transform hover:scale-105 transition-transform duration-300">
+                <img
+                  src={member.image}
+                  alt={member.alt}
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                  onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/e50914/FFFFFF?text=Placeholder'; }}
+                />
+                <h4 className="text-xl font-bold text-white">{member.name}</h4>
+                <p className="text-sm text-[var(--color-red-primary)] mt-1">{member.designation}</p>
+                <div className="flex justify-center mt-3 space-x-2">
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white opacity-70 hover:text-[var(--color-red-primary)] transition-colors">
+                    <Linkedin size={20} />
+                  </a>
+                </div>
               </div>
-            </div>
-            {/* Team Member 2 */}
-            <div className="bg-black p-6 rounded-xl shadow-md border border-white border-opacity-20 transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://placehold.co/150x150/e50914/FFFFFF?text=Sujal"
-                alt="Sujal Chauhan"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/e50914/FFFFFF?text=Placeholder'; }}
-              />
-              <h4 className="text-xl font-bold text-white">Sujal Chauhan</h4>
-              {/* Removed designation */}
-              <div className="flex justify-center mt-3 space-x-2">
-                <a href="#" className="text-white opacity-70 hover:text-[var(--color-red-primary)] transition-colors"><Instagram size={20} /></a>
-              </div>
-            </div>
-            {/* Team Member 3 */}
-            <div className="bg-black p-6 rounded-xl shadow-md border border-white border-opacity-20 transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://placehold.co/150x150/e50914/FFFFFF?text=Kailash"
-                alt="Kailash Rathod"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/e50914/FFFFFF?text=Placeholder'; }}
-              />
-              <h4 className="text-xl font-bold text-white">Kailash Rathod</h4>
-              {/* Removed designation */}
-              <div className="flex justify-center mt-3 space-x-2">
-                <a href="#" className="text-white opacity-70 hover:text-[var(--color-red-primary)] transition-colors"><Instagram size={20} /></a>
-              </div>
-            </div>
-            {/* Team Member 4 */}
-            <div className="bg-black p-6 rounded-xl shadow-md border border-white border-opacity-20 transform hover:scale-105 transition-transform duration-300">
-              <img
-                src="https://placehold.co/150x150/e50914/FFFFFF?text=Sonu"
-                alt="Sonu Jha"
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x150/e50914/FFFFFF?text=Placeholder'; }}
-              />
-              <h4 className="text-xl font-bold text-white">Sonu Jha</h4>
-              {/* Removed designation */}
-              <div className="flex justify-center mt-3 space-x-2">
-                <a href="#" className="text-white opacity-70 hover:text-[var(--color-red-primary)] transition-colors"><Instagram size={20} /></a>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -773,7 +768,7 @@ const App = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img
-              src="https://placehold.co/40x40/e50914/FFFFFF?text=TSM"
+              src="LOGO_BG.png"
               alt="Two Squid Media Logo"
               className="h-10 w-10 mr-2"
               onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/40x40/e50914/FFFFFF?text=Logo'; }}
@@ -829,7 +824,7 @@ const App = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-4">
               <img
-                src="https://placehold.co/40x40/e50914/FFFFFF?text=TSM"
+                src="LOGO_BG.png"
                 alt="Two Squid Media Logo"
                 className="h-10 w-10 mr-2"
                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/40x40/e50914/FFFFFF?text=Logo'; }}
