@@ -41,9 +41,19 @@ const ServiceCard = ({ icon: Icon, title, description }) => {
 const HomePage = ({ handlePageChange }) => {
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-black to-[var(--color-red-dark)] text-white py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: '/homepage/banner.png', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+      {/* Hero Section - Updated to use image_54971d.jpg as background and image_54a2db.png as the smaller overlay image */}
+<section
+        className="relative text-white py-20 md:py-32 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/homepage/banner.png)', // Corrected: Using the uploaded image directly by its filename
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 z-0 bg-black opacity-40"></div>
+
         <div className="relative z-10 container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <p className="text-[var(--color-red-light)] uppercase tracking-widest text-sm mb-4">Your Vision, Our Expertise</p>
@@ -69,16 +79,16 @@ const HomePage = ({ handlePageChange }) => {
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
+            {/* The smaller banner image, now using image_54a2db.png */}
             <img
-              src="/homepage/banner.png"
+              src="/homepage/website-banner-image-2.png" // Using the other uploaded image as the smaller overlay image
               alt="Digital Marketing Illustration"
-              className="rounded-xl shadow-2xl animate-fade-in-right"
-              onError={(e) => { e.target.onerror = null; e.target.src = '/homepage/banner.png'; }}
+              className="rounded-xl shadow-2xl animate-fade-in-right hidden md:block" // Hidden on mobile, shown on md and up
+              onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/000000/FFFFFF?text=Overlay+Image'; }} // Fallback placeholder
             />
           </div>
         </div>
       </section>
-
       {/* Services Overview Section */}
       <section className="py-16 md:py-24 bg-black">
         <div className="container mx-auto px-4 text-center">
@@ -119,6 +129,7 @@ const HomePage = ({ handlePageChange }) => {
             />
             <ServiceCard
               icon={Monitor}
+              title="Social Media Management"
               description="Managing your social presence, crafting engaging content, and growing your community for maximum impact."
             />
             <ServiceCard
@@ -166,6 +177,7 @@ const HomePage = ({ handlePageChange }) => {
     </div>
   );
 };
+
 // About Us Page Component
 const AboutPage = () => {
   // Define team members with their designations and LinkedIn profiles
