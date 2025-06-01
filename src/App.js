@@ -258,6 +258,7 @@ const AboutPage = () => {
         </div>
 
         {/* Team Section */}
+      {/*
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Meet Our Talented Team</h2>
           <p className="text-lg text-white opacity-70 mb-12 max-w-2xl mx-auto">
@@ -282,7 +283,7 @@ const AboutPage = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
